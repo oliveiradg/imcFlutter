@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:imc/components/card_tela.dart';
@@ -20,20 +21,34 @@ class _InputPageState extends State<InputPage> {
         body: Column(children: <Widget>[
           Expanded(
               child: Row(
-            children:  const [
+            children:   [
               Expanded(
-                // ignore: unnecessary_const
-                child: CardTela(
-                  cardChild: IconComponent(
-                    icon: FontAwesomeIcons.mars,
-                    labelSexo: 'Masculino',),
+             
+                child: GestureDetector (
+                  onTap: () {
+                    print('clicou masculino');
+                  },
+                  child: const CardTela(
+                    cardChild: IconComponent(
+                      icon: FontAwesomeIcons.mars,
+                      labelSexo: 'Masculino',),
+                  ),
                 ),
               ),
+
+
               Expanded(
-                child: CardTela(cardChild: IconComponent(
-                  icon: FontAwesomeIcons.venus,
-                  labelSexo: 'Feminino',
-                ),),
+                child: GestureDetector (
+                  onTap: () {
+                 
+                      print('clicou Feminino');
+                    
+                  },
+                  child: const CardTela(cardChild: IconComponent(
+                    icon: FontAwesomeIcons.venus,
+                    labelSexo: 'Feminino',
+                  ),),
+                ),
               )
             ],
           )),

@@ -1,4 +1,12 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
+
+const labelTextStyle = TextStyle(
+  fontSize: 18,
+  color: Color(0xFF8D8E98),
+);
+
 
 class IconComponent extends StatelessWidget {
   // ignore: use_key_in_widget_constructors
@@ -25,11 +33,7 @@ class IconComponent extends StatelessWidget {
         ),
         Text(
           labelSexo,
-          style: const TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-            color: Color(0xFF8D8E98),
-          ),
+          style: labelTextStyle,
         ),
       ],
     );
