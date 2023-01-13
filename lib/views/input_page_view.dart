@@ -12,6 +12,32 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
+  Color maleCardColour = inactiveCardColour;
+  Color femaleCardColour = inactiveCardColour;
+
+// 1 = male, 2 = female
+  void updateColour(int gender) {
+    if (gender == 1) {
+      //card masculino pressionado
+      if (maleCardColour == inactiveCardColour) {
+        maleCardColour = activeCardColour;
+        femaleCardColour = inactiveCardColour;
+      } else {
+        maleCardColour == inactiveCardColour;
+
+      }
+    }
+    //card feminino pressionado
+    if (gender == 2) {
+      if (femaleCardColour == inactiveCardColour) {
+        femaleCardColour = activeCardColour;
+        maleCardColour = inactiveCardColour;
+      } else {
+        femaleCardColour == inactiveCardColour;
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,33 +47,37 @@ class _InputPageState extends State<InputPage> {
         body: Column(children: <Widget>[
           Expanded(
               child: Row(
-            children:   [
+            children: [
               Expanded(
-             
-                child: GestureDetector (
+                child: GestureDetector(
                   onTap: () {
-                    print('clicou masculino');
+                    setState(() {
+                      updateColour(1);
+                    });
                   },
-                  child: const CardTela(
-                    cardChild: IconComponent(
+                  child: CardTela(
+                    colour: maleCardColour,
+                    cardChild: const IconComponent(
                       icon: FontAwesomeIcons.mars,
-                      labelSexo: 'Masculino',),
+                      labelSexo: 'Masculino',
+                    ),
                   ),
                 ),
               ),
-
-
               Expanded(
-                child: GestureDetector (
+                child: GestureDetector(
                   onTap: () {
-                 
-                      print('clicou Feminino');
-                    
+                     setState(() {
+                      updateColour(2);
+                    });
                   },
-                  child: const CardTela(cardChild: IconComponent(
-                    icon: FontAwesomeIcons.venus,
-                    labelSexo: 'Feminino',
-                  ),),
+                  child: CardTela(
+                    colour: femaleCardColour,
+                    cardChild: const IconComponent(
+                      icon: FontAwesomeIcons.venus,
+                      labelSexo: 'Feminino',
+                    ),
+                  ),
                 ),
               )
             ],
