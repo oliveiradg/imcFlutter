@@ -7,7 +7,6 @@ import 'package:imc/components/icon_component.dart';
 enum Genero {
   masculino,
   feminino,
-  
 }
 
 class InputPage extends StatefulWidget {
@@ -18,32 +17,9 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
-  Color maleCardColour = inactiveCardColour;
-  Color femaleCardColour = inactiveCardColour;
+  late Genero generoSelecionado;
 
-// 1 = male, 2 = female
-  void updateColour(Genero generoSelecionado) {
-    // ignore: unrelated_type_equality_checks
-    if (generoSelecionado == Genero.masculino ) {
-      //card masculino pressionado
-      if (maleCardColour == inactiveCardColour) {
-        maleCardColour = activeCardColour;
-        femaleCardColour = inactiveCardColour;
-      } else {
-        maleCardColour == inactiveCardColour;
 
-      }
-    }
-    //card feminino pressionado
-    if (generoSelecionado == Genero.feminino) {
-      if (femaleCardColour == inactiveCardColour) {
-        femaleCardColour = activeCardColour;
-        maleCardColour = inactiveCardColour;
-      } else {
-        femaleCardColour == inactiveCardColour;
-      }
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -59,11 +35,11 @@ class _InputPageState extends State<InputPage> {
                 child: GestureDetector(
                   onTap: () {
                     setState(() {
-                      updateColour(Genero.masculino);
+                     generoSelecionado = Genero.masculino;
                     });
                   },
                   child: CardTela(
-                    colour: maleCardColour,
+                    colour: generoSelecionado == Genero.masculino ?activeCardColour : inactiveCardColour,
                     cardChild: const IconComponent(
                       icon: FontAwesomeIcons.mars,
                       labelSexo: 'Masculino',
@@ -74,12 +50,12 @@ class _InputPageState extends State<InputPage> {
               Expanded(
                 child: GestureDetector(
                   onTap: () {
-                     setState(() {
-                      updateColour(Genero.feminino);
+                    setState(() {
+                      generoSelecionado = Genero.feminino;
                     });
                   },
                   child: CardTela(
-                    colour: femaleCardColour,
+                    colour: generoSelecionado == Genero.feminino ?activeCardColour : inactiveCardColour,
                     cardChild: const IconComponent(
                       icon: FontAwesomeIcons.venus,
                       labelSexo: 'Feminino',
