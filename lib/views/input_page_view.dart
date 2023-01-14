@@ -4,6 +4,12 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:imc/components/card_tela.dart';
 import 'package:imc/components/icon_component.dart';
 
+enum Genero {
+  masculino,
+  feminino,
+  
+}
+
 class InputPage extends StatefulWidget {
   const InputPage({Key? key}) : super(key: key);
 
@@ -16,8 +22,9 @@ class _InputPageState extends State<InputPage> {
   Color femaleCardColour = inactiveCardColour;
 
 // 1 = male, 2 = female
-  void updateColour(int gender) {
-    if (gender == 1) {
+  void updateColour(Genero generoSelecionado) {
+    // ignore: unrelated_type_equality_checks
+    if (generoSelecionado == Genero.masculino ) {
       //card masculino pressionado
       if (maleCardColour == inactiveCardColour) {
         maleCardColour = activeCardColour;
@@ -28,7 +35,7 @@ class _InputPageState extends State<InputPage> {
       }
     }
     //card feminino pressionado
-    if (gender == 2) {
+    if (generoSelecionado == Genero.feminino) {
       if (femaleCardColour == inactiveCardColour) {
         femaleCardColour = activeCardColour;
         maleCardColour = inactiveCardColour;
@@ -52,7 +59,7 @@ class _InputPageState extends State<InputPage> {
                 child: GestureDetector(
                   onTap: () {
                     setState(() {
-                      updateColour(1);
+                      updateColour(Genero.masculino);
                     });
                   },
                   child: CardTela(
@@ -68,7 +75,7 @@ class _InputPageState extends State<InputPage> {
                 child: GestureDetector(
                   onTap: () {
                      setState(() {
-                      updateColour(2);
+                      updateColour(Genero.feminino);
                     });
                   },
                   child: CardTela(
