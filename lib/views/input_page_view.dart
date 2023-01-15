@@ -32,35 +32,29 @@ class _InputPageState extends State<InputPage> {
               child: Row(
             children: [
               Expanded(
-                child: GestureDetector(
-                  onTap: () {
+                child: CardTela(
+                  colour: generoSelecionado == Genero.masculino ?activeCardColour : inactiveCardColour,
+                  cardChild: const IconComponent(
+                    icon: FontAwesomeIcons.mars,
+                    labelSexo: 'Masculino',
+                  ), onPress: (){
                     setState(() {
-                     generoSelecionado = Genero.masculino;
+                      generoSelecionado = Genero.masculino;
                     });
                   },
-                  child: CardTela(
-                    colour: generoSelecionado == Genero.masculino ?activeCardColour : inactiveCardColour,
-                    cardChild: const IconComponent(
-                      icon: FontAwesomeIcons.mars,
-                      labelSexo: 'Masculino',
-                    ),
-                  ),
                 ),
               ),
               Expanded(
-                child: GestureDetector(
-                  onTap: () {
+                child: CardTela(
+                  colour: generoSelecionado == Genero.feminino ?activeCardColour : inactiveCardColour,
+                  cardChild: const IconComponent(
+                    icon: FontAwesomeIcons.venus,
+                    labelSexo: 'Feminino',
+                  ), onPress: (){
                     setState(() {
                       generoSelecionado = Genero.feminino;
                     });
                   },
-                  child: CardTela(
-                    colour: generoSelecionado == Genero.feminino ?activeCardColour : inactiveCardColour,
-                    cardChild: const IconComponent(
-                      icon: FontAwesomeIcons.venus,
-                      labelSexo: 'Feminino',
-                    ),
-                  ),
                 ),
               )
             ],
