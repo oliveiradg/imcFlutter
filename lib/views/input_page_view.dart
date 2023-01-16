@@ -108,17 +108,17 @@ class _InputPageState extends State<InputPage> {
                   onPress: () {},
                 ),
               )),
-              // Expanded(
-              //     child: Row(
-              //   children: const [
-              //     Expanded(
-              //       child: CardTela(cardChild: IconComponent(),),
-              //     ),
-              //     Expanded(
-              //       child: CardTela(cardChild: IconComponent(),),
-              //     )
-              //   ],
-              // )),
+              Expanded(
+                  child: Row(
+                children: const [
+                  Expanded(
+                    child: CardTela(cardChild: IconComponent(),),
+                  ),
+                  Expanded(
+                    child: CardTela(cardChild: IconComponent(),),
+                  )
+                ],
+              )),
             ]));
   }
 }
