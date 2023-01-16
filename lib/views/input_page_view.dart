@@ -1,8 +1,9 @@
-import 'package:flutter/foundation.dart';
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:imc/components/card_tela.dart';
 import 'package:imc/components/icon_component.dart';
+import 'package:imc/constantes.dart';
 
 enum Genero {
   masculino,
@@ -18,8 +19,7 @@ class InputPage extends StatefulWidget {
 
 class _InputPageState extends State<InputPage> {
   late Genero generoSelecionado;
-
-
+  int altura = 180;
 
   @override
   Widget build(BuildContext context) {
@@ -27,54 +27,99 @@ class _InputPageState extends State<InputPage> {
         appBar: AppBar(
           title: const Text(' texto appbar'),
         ),
-        body: Column(children: <Widget>[
-          Expanded(
-              child: Row(
-            children: [
+        body: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
               Expanded(
-                child: CardTela(
-                  colour: generoSelecionado == Genero.masculino ?activeCardColour : inactiveCardColour,
-                  cardChild: const IconComponent(
-                    icon: FontAwesomeIcons.mars,
-                    labelSexo: 'Masculino',
-                  ), onPress: (){
-                    setState(() {
-                      generoSelecionado = Genero.masculino;
-                    });
-                  },
-                ),
-              ),
+                  child: Row(
+                children: [
+                  Expanded(
+                    child: CardTela(
+                      colour: generoSelecionado == Genero.masculino
+                          ? activeCardColour
+                          : inactiveCardColour,
+                      cardChild: const IconComponent(
+                        icon: FontAwesomeIcons.mars,
+                        labelSexo: 'Masculino',
+                      ),
+                      onPress: () {
+                        setState(() {
+                          generoSelecionado = Genero.masculino;
+                        });
+                      },
+                    ),
+                  ),
+                  Expanded(
+                    child: CardTela(
+                      colour: generoSelecionado == Genero.feminino
+                          ? activeCardColour
+                          : inactiveCardColour,
+                      cardChild: const IconComponent(
+                        icon: FontAwesomeIcons.venus,
+                        labelSexo: 'Feminino',
+                      ),
+                      onPress: () {
+                        setState(() {
+                          generoSelecionado = Genero.feminino;
+                        });
+                      },
+                    ),
+                  )
+                ],
+              )),
               Expanded(
+                  child: Expanded(
                 child: CardTela(
-                  colour: generoSelecionado == Genero.feminino ?activeCardColour : inactiveCardColour,
-                  cardChild: const IconComponent(
-                    icon: FontAwesomeIcons.venus,
-                    labelSexo: 'Feminino',
-                  ), onPress: (){
-                    setState(() {
-                      generoSelecionado = Genero.feminino;
-                    });
-                  },
+                  colour: activeCardColour,
+                  cardChild: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text(
+                        'Altura',
+                        style: labelTextStyle,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.baseline,
+                        textBaseline: TextBaseline.alphabetic,
+                        children:  [
+                          Text(
+                            altura.toString(),
+                            style: numberTextStyle,
+                          ),
+                          const Text(
+                            'cm',
+                            style: labelTextStyle,
+                          ),
+                        ],
+                      ),
+                      Slider(
+                        value: altura.toDouble() ,
+                        min: 120.0,
+                        max: 220.0,
+                        activeColor: const Color(0xFFEB1555),
+                        inactiveColor: const Color(0xFF8D8E98),
+                        onChanged: (double newValue) {
+                          print(newValue);
+                        },
+                      )
+                    ],
+                  ),
+                  onPress: () {},
                 ),
-              )
-            ],
-          )),
-          // const Expanded(
-          //     child: Expanded(
-          //   child: CardTela(cardChild: IconComponent(),),
-          // )),
-          // Expanded(
-          //     child: Row(
-          //   children: const [
-          //     Expanded(
-          //       child: CardTela(cardChild: IconComponent(),),
-          //     ),
-          //     Expanded(
-          //       child: CardTela(cardChild: IconComponent(),),
-          //     )
-          //   ],
-          // )),
-        ]));
+              )),
+              // Expanded(
+              //     child: Row(
+              //   children: const [
+              //     Expanded(
+              //       child: CardTela(cardChild: IconComponent(),),
+              //     ),
+              //     Expanded(
+              //       child: CardTela(cardChild: IconComponent(),),
+              //     )
+              //   ],
+              // )),
+            ]));
   }
 }
 
