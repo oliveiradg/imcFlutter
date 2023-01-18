@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:imc/components/card_tela.dart';
@@ -82,7 +81,7 @@ class _InputPageState extends State<InputPage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.baseline,
                         textBaseline: TextBaseline.alphabetic,
-                        children:  [
+                        children: [
                           Text(
                             altura.toString(),
                             style: numberTextStyle,
@@ -94,7 +93,7 @@ class _InputPageState extends State<InputPage> {
                         ],
                       ),
                       Slider(
-                        value: altura.toDouble() ,
+                        value: altura.toDouble(),
                         min: 120.0,
                         max: 220.0,
                         activeColor: const Color(0xFFEB1555),
@@ -110,12 +109,15 @@ class _InputPageState extends State<InputPage> {
               )),
               Expanded(
                   child: Row(
-                children: const [
+                children:  [
                   Expanded(
-                    child: CardTela(cardChild: IconComponent(),),
+                    child: CardTela(
+                      cardChild: null,
+                      colour: null,
+                      onPress: (){},                    ),
                   ),
                   Expanded(
-                    child: CardTela(cardChild: IconComponent(),),
+                    child: CardTela(),
                   )
                 ],
               )),
