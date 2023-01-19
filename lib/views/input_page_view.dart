@@ -17,14 +17,15 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
-  late Genero generoSelecionado;
+  
+  Genero ?generoSelecionado;
   int altura = 180;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text(' texto appbar'),
+          title: const Text(' Calculadora de IMC'),
         ),
         body: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -106,22 +107,22 @@ class _InputPageState extends State<InputPage> {
                   ),
                   onPress: () {},
                 ),
-              )),
-              Expanded(
-                  child: Row(
-                children:  [
-                  Expanded(
-                    child: CardTela(
-                      cardChild: null,
-                      colour: null,
-                      onPress: (){},                    ),
-                  ),
-                  Expanded(
-                    child: CardTela(),
-                  )
-                ],
-              )),
-            ]));
+              ),
+              // Expanded(
+              //     child: Row(
+              //   children:  [
+              //     Expanded(
+              //       child: CardTela(
+              //         cardChild: null,
+              //         colour: null,
+              //         onPress: (){},                    ),
+              //     ),
+              //     Expanded(
+              //       child: CardTela(),
+              //     )
+              //   ],
+              // )),
+           ) ]));
   }
 }
 
