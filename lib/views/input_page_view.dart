@@ -34,6 +34,7 @@ class _InputPageState extends State<InputPage> {
                 children: [
                   Expanded(
                     child: CardTela(
+                      
                       onPress: () {
                         setState(() {
                           generoSelecionado = Genero.masculino;
@@ -98,18 +99,32 @@ class _InputPageState extends State<InputPage> {
                           ),
                         ],
                       ),
-                      Slider(
-                        value: altura.toDouble(),
-                        min: 120.0,
-                        max: 220.0,
-                        activeColor: const Color(0xFFEB1555),
-                        inactiveColor: const Color(0xFF8D8E98),
-                        onChanged: (double newValue) {
-                          setState(() {
-                            altura = newValue.round();
-                          });
-                        
-                        },
+                      SliderTheme(
+                        data: SliderTheme.of(context).copyWith(
+                          activeTrackColor: Colors.white,
+                          thumbColor: const Color(0xFFEB1555),
+                          overlayColor: const Color(0x29EB1555),
+                          
+                          inactiveTrackColor: const Color(0xFF8D8E98),
+                          thumbShape: const RoundSliderThumbShape(
+                              enabledThumbRadius: 15.0),
+                          overlayShape: const RoundSliderOverlayShape(
+                              overlayRadius: 30.0),
+
+                        ),
+                        child: Slider(
+                          value: altura.toDouble(),
+                          min: 120.0,
+                          max: 220.0,
+                          
+                          
+                          onChanged: (double newValue) {
+                            setState(() {
+                              altura = newValue.round();
+                            });
+                          
+                          },
+                        ),
                       )
                     ],
                   ), onPress: (){},

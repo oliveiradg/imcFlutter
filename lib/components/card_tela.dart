@@ -18,7 +18,7 @@ class CardTela extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onPress as void Function()?, 
+      onTap: onPress as void Function(), 
       child: Container(
         margin: const EdgeInsets.all(15),
         decoration: BoxDecoration(
