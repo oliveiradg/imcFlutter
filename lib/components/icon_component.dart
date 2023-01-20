@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:imc/constantes.dart';
+import 'package:imc/components/constantes.dart';
 
 
 
