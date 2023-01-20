@@ -17,8 +17,7 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
-  
-  Genero ?generoSelecionado;
+  Genero? generoSelecionado;
   int altura = 180;
 
   @override
@@ -35,40 +34,46 @@ class _InputPageState extends State<InputPage> {
                 children: [
                   Expanded(
                     child: CardTela(
-                      colour: generoSelecionado == Genero.masculino
-                          ? activeCardColour
-                          : inactiveCardColour,
-                      cardChild: const IconComponent(
-                        icon: FontAwesomeIcons.mars,
-                        labelSexo: 'Masculino',
-                      ),
                       onPress: () {
                         setState(() {
                           generoSelecionado = Genero.masculino;
                         });
-                      },
+                        },
+                        colour:
+                        generoSelecionado == Genero.masculino
+                            ? activeCardColour
+                            : inactiveCardColour, cardChild:                    
+                        const IconComponent(
+                          icon: FontAwesomeIcons.mars,
+                          labelSexo: 'Masculino',
+                        )
+                      
                     ),
                   ),
+
+                  //Card Feminino
                   Expanded(
                     child: CardTela(
-                      colour: generoSelecionado == Genero.feminino
-                          ? activeCardColour
-                          : inactiveCardColour,
-                      cardChild: const IconComponent(
-                        icon: FontAwesomeIcons.venus,
-                        labelSexo: 'Feminino',
-                      ),
                       onPress: () {
                         setState(() {
                           generoSelecionado = Genero.feminino;
                         });
-                      },
+                        },
+                        colour:
+                        generoSelecionado == Genero.feminino
+                            ? activeCardColour
+                            : inactiveCardColour, cardChild:                    
+                        const IconComponent(
+                          icon: FontAwesomeIcons.venus,
+                          labelSexo: 'Feminino',
+                        )
+                      
                     ),
-                  )
+                  ),                  
+                
                 ],
               )),
               Expanded(
-                  child: Expanded(
                 child: CardTela(
                   colour: activeCardColour,
                   cardChild: Column(
@@ -100,29 +105,18 @@ class _InputPageState extends State<InputPage> {
                         activeColor: const Color(0xFFEB1555),
                         inactiveColor: const Color(0xFF8D8E98),
                         onChanged: (double newValue) {
-                          print(newValue);
+                          setState(() {
+                            altura = newValue.round();
+                          });
+                        
                         },
                       )
                     ],
-                  ),
-                  onPress: () {},
+                  ), onPress: (){},
+                  
                 ),
-              ),
-              // Expanded(
-              //     child: Row(
-              //   children:  [
-              //     Expanded(
-              //       child: CardTela(
-              //         cardChild: null,
-              //         colour: null,
-              //         onPress: (){},                    ),
-              //     ),
-              //     Expanded(
-              //       child: CardTela(),
-              //     )
-              //   ],
-              // )),
-           ) ]));
+              )
+            ]));
   }
 }
 

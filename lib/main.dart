@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:imc/views/input_page_view.dart';
 
 void main() {
-  runApp(CalculadoraIMC());
+  runApp(const CalculadoraIMC());
 }
 
 class CalculadoraIMC extends StatelessWidget {
