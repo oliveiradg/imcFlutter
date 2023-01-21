@@ -22,6 +22,7 @@ class _InputPageState extends State<InputPage> {
   Genero? generoSelecionado;
   int altura = 180;
   int peso = 60;
+  int idade = 19;
 
   @override
   Widget build(BuildContext context) {
@@ -121,45 +122,109 @@ class _InputPageState extends State<InputPage> {
               onPress: () {},
             ),
           ),
-          Expanded(
+          Row(
+            children: 
+              [Expanded(
+                child: CardTela(
+                  colour: activeCardColour,
+                  cardChild: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text(
+                        'Peso',
+                        style: labelTextStyle,
+                      ),
+                      Text(
+                        peso.toString(),
+                        style: numberTextStyle,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children:  [
+                          RoundIconButton(
+                            icon: FontAwesomeIcons.minus, 
+                            onPressed: (){
+                             
+                              
+                            },
+                          ),
+                          const SizedBox(
+                            width: 10.0,
+                          ),
+                          RoundIconButton(
+                            icon: FontAwesomeIcons.plus, onPressed:(){
+                            
+                            },
+                          ),
+                        ],
+                      )
+                    ],
+                  ), onPress: (){},
+                
+                ),
+              ),
+
+              Expanded(
             child: CardTela(
-              colour: activeCardColour,
+              colour: activeCardColour, 
               cardChild: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Text(
-                    'Peso',
+                    'Idade',
                     style: labelTextStyle,
                   ),
-                  Text(
-                    peso.toString(),
+                  const Text(
+                    '19',
                     style: numberTextStyle,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
+                    children: [
                       RoundIconButton(
                         icon: FontAwesomeIcons.minus, 
-                        onPressed: (){},
+                        onPressed: (){
+                          
+                        },
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 10.0,
                       ),
                       RoundIconButton(
-                        icon: FontAwesomeIcons.plus,
+                        icon: FontAwesomeIcons.plus, 
+                        onPressed: (){
+                          
+                        },
                       ),
                     ],
                   )
                 ],
-              ),
-              onPress: () {},
-            ),
+              ), onPress: (){},
+              ), ),
+
+            ],
           ),
+
+          
+            
+              
+
+          
+
+
+
+
+
+
+
+
+
+
           Container(
             color: const Color(0xFFEB1555),
             margin: const EdgeInsets.only(top: 10.0),
             width: double.infinity,
-            height: 70,
+            height: 60,
           ),
         ],
       ),
@@ -183,13 +248,15 @@ class RoundIconButton extends StatelessWidget {
   }) : super(key: key);
 
   final IconData icon;
-  final Function onPressed;
+  final Function  onPressed;
+
   @override
   Widget build(BuildContext context) {
     return RawMaterialButton(
       // ignore: sort_child_properties_last
       child: Icon(icon),
-      onPressed: onPressed,
+    
+      onPressed: onPressed(),
       elevation: 6.0,
       constraints: const BoxConstraints.tightFor(
         width: 56.0,
