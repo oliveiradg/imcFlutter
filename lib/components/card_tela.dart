@@ -1,15 +1,14 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+
 import 'package:imc/components/constantes.dart';
-
-
 
 class CardTela extends StatelessWidget {
   const CardTela({
     Key? key,
     required Color colour,
-    required this.cardChild, required this.onPress,
-    
+    required this.cardChild,
+    required this.onPress,
   }) : super(key: key);
 
   final Widget cardChild;

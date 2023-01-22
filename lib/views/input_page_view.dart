@@ -1,4 +1,3 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -97,10 +96,10 @@ class _InputPageState extends State<InputPage> {
                   ),
                   SliderTheme(
                     data: SliderTheme.of(context).copyWith(
+                      inactiveTrackColor: const Color(0xFF8D8E98),
                       activeTrackColor: Colors.white,
                       thumbColor: const Color(0xFFEB1555),
                       overlayColor: const Color(0x29EB1555),
-                      inactiveTrackColor: const Color(0xFF8D8E98),
                       thumbShape:
                           const RoundSliderThumbShape(enabledThumbRadius: 15.0),
                       overlayShape:
@@ -122,104 +121,101 @@ class _InputPageState extends State<InputPage> {
               onPress: () {},
             ),
           ),
-          Row(
-            children: 
-              [Expanded(
-                child: CardTela(
-                  colour: activeCardColour,
-                  cardChild: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text(
-                        'Peso',
-                        style: labelTextStyle,
-                      ),
-                      Text(
-                        peso.toString(),
-                        style: numberTextStyle,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children:  [
-                          RoundIconButton(
-                            icon: FontAwesomeIcons.minus, 
-                            onPressed: (){
-                             
-                              
-                            },
+          Expanded(
+            child: Row(
+              children: [
+                Expanded(
+                  child: CardTela(
+                    colour: activeCardColour,
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          'Peso',
+                          style: labelTextStyle,
+                        ),
+                        Text(
+                          peso.toString(),
+                          style: numberTextStyle,
+                        ),
+                        Expanded(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              RoundIconButton(
+                                icon: FontAwesomeIcons.minus,
+                                onPressed: () {
+                                  setState(() {
+                                    peso--;
+                                  });
+                                },
+                              ),
+                              const SizedBox(
+                                width: 10.0,
+                              ),
+                              RoundIconButton(
+                                icon: FontAwesomeIcons.plus,
+                                
+                                onPressed: () {
+                                  setState(() {
+                                    peso++;
+                                  });
+                                },
+                              ),
+                            ],
                           ),
-                          const SizedBox(
-                            width: 10.0,
-                          ),
-                          RoundIconButton(
-                            icon: FontAwesomeIcons.plus, onPressed:(){
-                            
-                            },
-                          ),
-                        ],
-                      )
-                    ],
-                  ), onPress: (){},
-                
+                        )
+                      ],
+                    ),
+                    onPress: () {},
+                  ),
                 ),
-              ),
-
-              Expanded(
-            child: CardTela(
-              colour: activeCardColour, 
-              cardChild: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text(
-                    'Idade',
-                    style: labelTextStyle,
+                Expanded(
+                  child: CardTela(
+                    colour: activeCardColour,
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          'Idade',
+                          style: labelTextStyle,
+                        ),
+                        Text(
+                          idade.toString(),
+                          style: numberTextStyle,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            RoundIconButton(
+                              icon: FontAwesomeIcons.minus,
+                              onPressed: () {
+                                setState(() {
+                                  idade--;
+                                });
+                              },
+                            ),
+                            const SizedBox(
+                              width: 10.0,
+                            ),
+                            RoundIconButton(
+                              icon: FontAwesomeIcons.plus,
+                              onPressed: () {
+                                setState(() {
+                                  idade++;
+                                });
+                              },
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
+                    onPress: () {},
                   ),
-                  const Text(
-                    '19',
-                    style: numberTextStyle,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      RoundIconButton(
-                        icon: FontAwesomeIcons.minus, 
-                        onPressed: (){
-                          
-                        },
-                      ),
-                      const SizedBox(
-                        width: 10.0,
-                      ),
-                      RoundIconButton(
-                        icon: FontAwesomeIcons.plus, 
-                        onPressed: (){
-                          
-                        },
-                      ),
-                    ],
-                  )
-                ],
-              ), onPress: (){},
-              ), ),
-
-            ],
+                ),
+              ],
+            ),
           ),
-
-          
-            
-              
-
-          
-
-
-
-
-
-
-
-
-
-
           Container(
             color: const Color(0xFFEB1555),
             margin: const EdgeInsets.only(top: 10.0),
@@ -248,21 +244,22 @@ class RoundIconButton extends StatelessWidget {
   }) : super(key: key);
 
   final IconData icon;
-  final Function  onPressed;
+  final Function onPressed;
 
   @override
   Widget build(BuildContext context) {
     return RawMaterialButton(
       // ignore: sort_child_properties_last
       child: Icon(icon),
-    
-      onPressed: onPressed(),
-      elevation: 6.0,
+
+      onPressed: onPressed as void Function(),
+      elevation: 0.0,
       constraints: const BoxConstraints.tightFor(
         width: 56.0,
         height: 56.0,
       ),
       shape: const CircleBorder(),
+      
       fillColor: const Color(0xFF4C4F5E),
     );
   }
