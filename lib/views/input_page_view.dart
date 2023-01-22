@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:imc/components/card_tela.dart';
 import 'package:imc/components/constantes.dart';
 import 'package:imc/components/icon_component.dart';
+import 'package:imc/views/resultado_page.dart';
 
 enum Genero {
   masculino,
@@ -155,7 +156,6 @@ class _InputPageState extends State<InputPage> {
                               ),
                               RoundIconButton(
                                 icon: FontAwesomeIcons.plus,
-                                
                                 onPressed: () {
                                   setState(() {
                                     peso++;
@@ -216,11 +216,36 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          Container(
-            color: const Color(0xFFEB1555),
-            margin: const EdgeInsets.only(top: 10.0),
-            width: double.infinity,
-            height: 60,
+          GestureDetector(
+            onTap: () {
+              Navigator.push(context, 
+              MaterialPageRoute(
+                builder: ((context) {
+                  return const ResultadoPage();
+                }
+                
+                
+                ),
+              
+              
+              ),);
+            },
+            child: Container(
+              // ignore: sort_child_properties_last
+              child: const Center(
+                child: Text(
+                  'CALCULAR',
+                  style: TextStyle(
+                    fontSize: 25.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              color: const Color(0xFFEB1555),
+              margin: const EdgeInsets.only(top: 10.0),
+              width: double.infinity,
+              height: 60,
+            ),
           ),
         ],
       ),
@@ -259,7 +284,7 @@ class RoundIconButton extends StatelessWidget {
         height: 56.0,
       ),
       shape: const CircleBorder(),
-      
+
       fillColor: const Color(0xFF4C4F5E),
     );
   }
