@@ -1,5 +1,9 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:imc/components/bottom_botao.dart';
 
 import 'package:imc/components/card_tela.dart';
 import 'package:imc/components/constantes.dart';
@@ -216,42 +220,25 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          GestureDetector(
+          BotaoInferior(
             onTap: () {
-              Navigator.push(context, 
-              MaterialPageRoute(
-                builder: ((context) {
-                  return const ResultadoPage();
-                }
-                
-                
-                ),
-              
-              
-              ),);
-            },
-            child: Container(
-              // ignore: sort_child_properties_last
-              child: const Center(
-                child: Text(
-                  'CALCULAR',
-                  style: TextStyle(
-                    fontSize: 25.0,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              color: const Color(0xFFEB1555),
-              margin: const EdgeInsets.only(top: 10.0),
-              width: double.infinity,
-              height: 60,
-            ),
+              Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: ((context) {
+              return const ResultadoPage();
+            }),
+          ),
+        );
+            }, buttonTitle: 'CALCULAR',
           ),
         ],
       ),
     );
   }
 }
+
+
 
 // Container(
 //   margin: const EdgeInsets.all(15),

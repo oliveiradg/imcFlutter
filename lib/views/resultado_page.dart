@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:imc/components/bottom_botao.dart';
+import 'package:imc/components/card_tela.dart';
+import 'package:imc/components/constantes.dart';
 
 class ResultadoPage extends StatelessWidget {
   const ResultadoPage({Key? key}) : super(key: key);
@@ -7,22 +10,57 @@ class ResultadoPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('CalculadoraIMC'),
+        title: const Text('Calculadora de IMC'),
         centerTitle: true,
       ),
-      body: Container(
-        color: Colors.yellow,
-        child: const Center(
-          child: Text('Resultado',
-              style: TextStyle(
-                color: Colors.red,
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
-              )),
-        ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Expanded(
+            flex: 5,
+            child: Container(
+              child: const Text(
+                'Resultado',
+                style: titleTextStyle,
+              ),
+            ),
+          ),
+          Expanded(
+            flex: 5,
+            child: CardTela(
+              cardChild: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: const [
+                  Text(
+                    'NORMAL',
+                    style: resultTextStyle,
+                  ),
+                  Text(
+                    '18.3',
+                    style: numberTextStyle,
+                  ),
+                  Text(
+                    'Você tem um peso normal. Bom trabalho!',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 22,
+                    ),
+                  )
+                ],
+              ),
+              colour: activeCardColour,
+              onPress: () {},
+            ),
+          ),
+          BotaoInferior(
+            buttonTitle: 'RECALCULAR',
+            onTap: () {
+              Navigator.pop(context);
+            }, 
+          ),
+        ],
       ),
-      
-      
     );
   }
 }
