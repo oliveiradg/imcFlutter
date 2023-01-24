@@ -15,9 +15,10 @@ class ResultadoPage extends StatelessWidget {
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Expanded(
-            flex: 5,
+          
             child: Container(
               child: const Text(
                 'Resultado',
@@ -57,7 +58,7 @@ class ResultadoPage extends StatelessWidget {
             buttonTitle: 'RECALCULAR',
             onTap: () {
               Navigator.pop(context);
-            }, 
+            },
           ),
         ],
       ),
