@@ -4,7 +4,7 @@
 
 O objetivo deste tutorial é ver como podemos personalizar Flutter Widgets para obter nossos belos designs de interface de usuário. Se você tem um designer a bordo, não importa o quão pouco convencionais sejam seus designs, podemos criá-los usando o Flutter.
 
-## O que você vai criar
+## O que vou criar
 
 Vamos fazer uma Calculadora de Índice de Massa Corporal inspirada nos lindos desenhos feitos por [Ruben Vaalt](https://dribbble.com/shots/4585382-Simple-BMI-Calculator). Será um aplicativo para várias telas com funcionalidade simples, mas com um estilo totalmente personalizado.
 
